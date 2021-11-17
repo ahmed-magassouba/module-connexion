@@ -42,9 +42,16 @@
                         "nom" => $utilisateur[0]["nom"]
                     ];
 
-                    // var_dump($_SESSION);
+                    if ( $_SESSION['connecte']['login'] == 'admin' ) {
 
-                    header('Location: profil.php');
+                        header('Location: admin.php');
+                        exit();
+                    } else {
+                        // var_dump($_SESSION);
+
+                        header('Location: profil.php');
+                        exit();
+                    }
                 } else {
                     echo 'inscris toi mieux ';
                 }

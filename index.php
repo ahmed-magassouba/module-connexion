@@ -28,8 +28,8 @@
             </div>
             <div>
                 <button><a href="connexion.php">CONNEXION</a></button>
-                <button><a href="inscription.php">Inscription</a> </button>
-                <button><a href="deconnexion.php">Deconnexion</a> </button>
+                <button><a href="inscription.php">s'inscrire</a> </button>
+                <
             </div>
         </section>
 
