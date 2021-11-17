@@ -1,6 +1,8 @@
  <?php
-    
-   
+    session_start();
+
+    include_once "includes/header.php";
+
     $bdd = mysqli_connect('localhost', 'root', '', 'moduleconnexion');
 
     mysqli_set_charset($bdd, 'UTF8');
@@ -13,7 +15,7 @@
     $message = null;      // Message à afficher à l'utilisateu
 
     if (!empty($_POST)) {
-        
+
         if (isset($_POST['log'], $_POST['pass']) && !empty($_POST['log']) && !empty($_POST['pass'])) {
 
             $log = strip_tags($_POST['log']);
@@ -27,46 +29,41 @@
             $utilisateur = mysqli_fetch_all($requete, MYSQLI_ASSOC);
             var_dump($utilisateur);
 
-            //si le login n'existe pas
-            if (!$utilisateur) {
-                echo "<h1>Le login ou le mot de passe est incorrect</h1>";
+            //les conditions de connexion et redirection vers la page de profil
+
+            if (count($utilisateur) > 0) {
+
+                if ((password_verify($pass,  $utilisateur[0]['password'])) ||  $pass == $utilisateur[0]['password']) {
+
+                    $_SESSION['connecte'] = [
+                        "id" => $utilisateur[0]["id"],
+                        "login" => $utilisateur[0]["login"],
+                        "prenom" => $utilisateur[0]["prenom"],
+                        "nom" => $utilisateur[0]["nom"]
+                    ];
+
+                    // var_dump($_SESSION);
+
+                    header('Location: profil.php');
+                } else {
+                    echo 'inscris toi mieux ';
+                }
             }
-
-            if($utilisateur[0]['login']!= $log ){
-                echo "<h1>Le login ou le mot de passe est incorrect</h1>";
-            }
-
-            //la fonction password_verify Vérifie que la table de hachage fournie correspond bien au mot de passe fourni
-            //si le mot de passe  est different de celui dans la basse de donnéé
-            if (!password_verify($pass,  $utilisateur[0]['password'])) {
-                echo "<h1>Le login ou le mot de passe est incorrect</h1>";
-            }
-
-            // si le login et le mot de passe sont correct
-            //on connecte l'utilisateur
-            session_start();
-            $_SESSION['connecte'] = [
-                "id" => $utilisateur[0]["id"],
-                "login" => $utilisateur[0]["login"],
-                "prenom" => $utilisateur[0]["prenom"],
-                "nom" => $utilisateur[0]["nom"]
-            ];
-
-           // var_dump($_SESSION);
-
-          //  header('Location: profil.php');
+        }
+        if (empty($utilisateur)) {
+            echo "<h1>Le login ou le mot de passe est incorrect</h1>";
         }
     }
 
-    // require_once 'mes_fonctions/authentification.php';
+    require_once 'mes_fonctions/authentification.php';
 
-    // if (est_connecte()) {
-    //     header('Location: profil.php ');
-    //     exit();
-    // }
-    // var_dump(est_connecte());
-    // var_dump($_POST);
-    // include_once "includes/header.php";
+    if (est_connecte()) {
+        header('Location: profil.php ');
+        exit();
+    }
+    var_dump(est_connecte());
+    var_dump($_POST);
+    include_once "includes/header.php";
     ?>
 
 
@@ -93,11 +90,11 @@
                  <legend>Identifiant</legend>
                  <p>
                      <label for="log"></label>
-                     <input type="text" name="log" id="log" placeholder="Login" />
+                     <input type="text" name="log" id="log" placeholder="Login" required />
                  </p>
                  <p>
                      <label for="pass"></label>
-                     <input type="password" name="pass" id="pass" placeholder="Mot de passe" />
+                     <input type="password" name="pass" id="pass" placeholder="Mot de passe" required />
 
                  </p>
                  <input type="submit" name="submit" value="Identification" />
