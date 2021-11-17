@@ -31,15 +31,19 @@
 
         if (isset($login, $prenom, $nom, $password) && !empty($login) && !empty($prenom) && !empty($nom) && !empty($password)) {
 
+            //on verifie si le login existe
             $sqlVerif = "SELECT * FROM utilisateurs WHERE login = '$login'";
             $select = mysqli_query($bdd, $sqlVerif);
 
             if (mysqli_num_rows($select)) {
                 echo "Ce login existe déjà . choisissez un autre";
 
+            //si le login n'existe pas
             } elseif (password_verify($confirm_password, $password)) {
                 $requete = mysqli_query($bdd, $sql);
-                var_dump(password_verify($password, $confirm_password));
+
+              //  var_dump(password_verify($password, $confirm_password));
+              
                 header('Location: connexion.php');
                 exit();
             } else {
