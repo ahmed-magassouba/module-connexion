@@ -1,5 +1,5 @@
  <?php
-include_once "includes/header.php";
+    include_once "includes/header.php";
 
     /////////////////////////////////////////////////////////
     ///  CONNEXION ET INSERTION DANS LA BASE DE DONNEE  ////
@@ -13,6 +13,7 @@ include_once "includes/header.php";
     //la fonction strip_tags suprime les balise html et php d'une chaine de carractère 
 
     if (!empty($_POST)) {
+
         $login = strip_tags($_POST['login']);
         $prenom = strip_tags($_POST['prenom']);
         $nom = strip_tags($_POST['nom']);
@@ -25,20 +26,24 @@ include_once "includes/header.php";
         //password_hash est une fonction pour hasher le motde passe
         $password = password_hash($_POST['password'], PASSWORD_ARGON2ID);
         $confirm_password = $_POST['confirm-password'];
-        
+
         $sql = "INSERT INTO `utilisateurs` ( `login`, `prenom`, `nom`, `password`) VALUES ('$login', '$prenom', '$nom', '$password')";
 
         if (isset($login, $prenom, $nom, $password) && !empty($login) && !empty($prenom) && !empty($nom) && !empty($password)) {
 
-            var_dump(password_verify($password, $confirm_password));
+            $sqlVerif = "SELECT * FROM utilisateurs WHERE login = '$login'";
+            $select = mysqli_query($bdd, $sqlVerif);
 
-            if (password_verify($confirm_password,$password)) {
+            if (mysqli_num_rows($select)) {
+                echo "Ce login existe déjà . choisissez un autre";
+
+            } elseif (password_verify($confirm_password, $password)) {
                 $requete = mysqli_query($bdd, $sql);
-
+                var_dump(password_verify($password, $confirm_password));
                 header('Location: connexion.php');
                 exit();
             } else {
-                die("<h1>Les mots de passe ne sont pas identique</h1>");
+                echo "<h1>Les mots de passe ne sont pas identique</h1>";
             }
         } else {
             echo  "vous avez des champs vide ";
@@ -70,7 +75,7 @@ include_once "includes/header.php";
  </head>
 
  <body>
-   
+
 
      <main>
 

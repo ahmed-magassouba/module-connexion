@@ -1,7 +1,6 @@
 <?php
    require_once 'mes_fonctions/authentification.php';
    include_once "includes/header.php";
-     obliger_utilisateur_connecte();
      var_dump(est_connecte());
 ?>
 
