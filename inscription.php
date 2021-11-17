@@ -1,130 +1,122 @@
-<!DOCTYPE html>
-<html lang="en">
+ <?php
+include_once "includes/header.php";
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page d'inscription'</title>
-</head>
+    /////////////////////////////////////////////////////////
+    ///  CONNEXION ET INSERTION DANS LA BASE DE DONNEE  ////
+    ///////////////////////////////////////////////////////
 
-<body>
-    <header>
-        <section>
-            <div>
-                <h1>LOGO</h1>
-            </div>
-            <div>
-                <button><a href="inscription.php">CONNEXION</a></button>
-                <button><a href="inscription.php">Inscription</a> </button>
-            </div>
-        </section>
+    $bdd = mysqli_connect('localhost', 'root', '', 'moduleconnexion');
 
-    </header>
+    mysqli_set_charset($bdd, 'UTF8');
 
-    <main>
-        <?php
+    //traitement du formulaire d'inscription
+    //la fonction strip_tags suprime les balise html et php d'une chaine de carractère 
+
+    if (!empty($_POST)) {
+        $login = strip_tags($_POST['login']);
+        $prenom = strip_tags($_POST['prenom']);
+        $nom = strip_tags($_POST['nom']);
 
 
-        /////////////////////////////////////////////////////////
-        ///  CONNEXION ET INSERTION DANS LA BASE DE DONNEE  ////
-        ///////////////////////////////////////////////////////
-
-        $bdd = mysqli_connect('localhost', 'root', '', 'moduleconnexion');
-
-        mysqli_set_charset($bdd, 'UTF8');
-
-        $login = $_POST['login'];
-        $prenom = $_POST['prenom'];
-        $nom = $_POST['nom'];
-        $password = $_POST['password'];
+        //pour verifier la validité d'un mail sans passer par les expression regulière
+        //if(!filter_var($_post["email"], FILTER_VALIDATE_EMAIL)){ die("L'adresse email est incorrecte")};
 
 
-        $sauvegarde = false;
-
+        //password_hash est une fonction pour hasher le motde passe
+        $password = password_hash($_POST['password'], PASSWORD_ARGON2ID);
+        $confirm_password = $_POST['confirm-password'];
+        
         $sql = "INSERT INTO `utilisateurs` ( `login`, `prenom`, `nom`, `password`) VALUES ('$login', '$prenom', '$nom', '$password')";
 
-        //traitement du formulaire d'inscription
+        if (isset($login, $prenom, $nom, $password) && !empty($login) && !empty($prenom) && !empty($nom) && !empty($password)) {
 
-        if (!empty($_POST)) {
-            if( !empty($login) && !empty($prenom) && !empty($nom) && !empty($password)){
+            var_dump(password_verify($password, $confirm_password));
 
-          
-            if ($_POST['password'] == $_POST['confirm-password']) {
+            if (password_verify($confirm_password,$password)) {
                 $requete = mysqli_query($bdd, $sql);
-                var_dump($requete);
-                echo "<h1>Inscription reussie</h1>";
-                $sauvegarde=true;
-            } else{
-            echo"<h1> erreur Inscription</h1>";
-       
-        } 
-     }else{
-        echo  "vous avez des champs vide ";
-     }
 
+                header('Location: connexion.php');
+                exit();
+            } else {
+                die("<h1>Les mots de passe ne sont pas identique</h1>");
+            }
+        } else {
+            echo  "vous avez des champs vide ";
+        }
     }
 
-if($sauvegarde==true){
-    header('Location: connexion.php');
-}
 
+    require_once 'mes_fonctions/authentification.php';
 
+    if (est_connecte()) {
+        header('Location: profil.php ');
+        exit();
+    }
 
+    var_dump(est_connecte());
 
+    mysqli_close($bdd);
 
+    ?>
 
+ <!DOCTYPE html>
+ <html lang="en">
 
+ <head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Page d'inscription'</title>
+ </head>
 
-        var_dump($_POST);
+ <body>
+   
 
+     <main>
 
-        mysqli_close($bdd);
+         <form action="inscription.php" method="post">
+             <fieldset>
+                 <legend>Inscription</legend>
 
-        ?>
-        <form action="inscription.php" method="post">
-            <fieldset>
-                <legend>Inscription</legend>
+                 <div class="">
+                     <label for="login"> </label>
+                     <input type="text" name="login" id="login" placeholder="login" required>
+                 </div>
 
-                <div class="">
-                    <label for="login"> </label>
-                    <input type="text" name="login" id="login" placeholder="login" required>
-                </div>
+                 <div class="">
+                     <label for="prenom"></label>
+                     <input type="text" name="prenom" id="prenom" placeholder="Prénom" required>
+                 </div>
 
-                <div class="">
-                    <label for="prenom"></label>
-                    <input type="text" name="prenom" id="prenom" placeholder="Prénom" required>
-                </div>
+                 <div class="">
+                     <label for="nom"></label>
+                     <input type="text" name="nom" id="nom" placeholder="Nom" required>
+                 </div>
 
-                <div class="">
-                    <label for="nom"></label>
-                    <input type="text" name="nom" id="nom" placeholder="Nom" required>
-                </div>
+                 <div class="">
 
-                <div class="">
+                     <label for="password"></label>
+                     <input type="password" name="password" id="password " placeholder="Mot de passe" required>
 
-                    <label for="password"></label>
-                    <input type="password" name="password" id="password " placeholder="Mot de passe" required>
+                     <label for="confirm-password"></label>
+                     <input type="password" name="confirm-password" id="confirm-password" placeholder="Confirmer le mot de passe" required>
 
-                    <label for="confirm-password"></label>
-                    <input type="password" name="confirm-password" id="confirm-password" placeholder="Confirmer le mot de passe" required>
+                 </div>
 
-                </div>
+                 <div class="">
+                     <input type="submit" value="Envoyer">
+                 </div>
 
-                <div class="">
-                    <input type="submit" value="Envoyer">
-                </div>
+             </fieldset>
+         </form>
 
-            </fieldset>
-        </form>
+     </main>
 
-    </main>
+     <footer>
+         <div>
+             <h1>FOOTER</h1>
+         </div>
+     </footer>
+ </body>
 
-    <footer>
-        <div>
-            <h1>FOOTER</h1>
-        </div>
-    </footer>
-</body>
-
-</html>
+ </html>
