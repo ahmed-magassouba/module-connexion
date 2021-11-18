@@ -1,5 +1,5 @@
 <?php
-require_once 'mes_fonctions/authentification.php';
+include_once 'mes_fonctions/authentification.php';
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +15,6 @@ require_once 'mes_fonctions/authentification.php';
                 echo "Mon site";
             }  ?>
     </title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -25,19 +24,32 @@ require_once 'mes_fonctions/authentification.php';
         <div>
             <h1>Mon site</h1>
         </div>
-        <div>
-            <?php if (!est_connecte()) : ?>
-                <button><a href="connexion.php">Connexion</a></button>
-                <button><a href="inscription.php">Inscription</a> </button>
-            <?php else : ?>
-                <button><a href="deconnexion.php">Deconnexion</a> </button>
-            <?php endif; ?>
-        </div>
+        <section class="menu">
+            <div>
+                <h6><?php if (!empty($_SESSION['connecte']['prenom']) && !empty($_SESSION['connecte']['nom']) ) {
+                        echo 'Salut ' . $_SESSION["connecte"]["prenom"] . ' ' . $_SESSION["connecte"]["nom"] ;
+                    }
+                    ?>
+                </h6>
+            </div>
+
+            <div>
+                <a href="index.php"><button>Accueil</button></a>
+                <?php if (!est_connecte()) : ?>
+                    <a href="connexion.php"><button>Connexion</button></a>
+                    <a href="inscription.php"><button>Inscription </button></a>
+                <?php else : ?>
+                    <a href="profil.php"><button> Profil </button></a>
+                    <a href="deconnexion.php"><button>Logout </button></a>
+                <?php endif; ?>
+                <?php if (!empty($_SESSION) && $_SESSION['connecte']['login'] == 'admin') : ?>
+                    <a href="admin.php"><button>Admin</button></a>
+                <?php endif; ?>
+            </div>
+        </section>
 
 
     </header>
     <main>
-    <aside></aside>
-    <section>
-
-  
+        <aside></aside>
+        <section>

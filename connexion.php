@@ -50,7 +50,7 @@ if (!empty($_POST)) {
                 } else {
                     // var_dump($_SESSION);
 
-                    header('Location: profil.php');
+                    header('Location: index.php');
                     exit();
                 }
             } else {
@@ -66,7 +66,7 @@ if (!empty($_POST)) {
 require_once 'mes_fonctions/authentification.php';
 
 if (est_connecte()) {
-    header('Location: profil.php ');
+    header('Location: index.php ');
     exit();
 }
 var_dump(est_connecte());
