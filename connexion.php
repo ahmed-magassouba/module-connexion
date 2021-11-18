@@ -2,7 +2,7 @@
 session_start();
 
 $title ="page de connexion";
-require 'includes/header.php';;
+require 'includes/header.php';
 
 $bdd = mysqli_connect('localhost', 'root', '', 'moduleconnexion');
 
@@ -71,7 +71,7 @@ if (est_connecte()) {
 }
 var_dump(est_connecte());
 var_dump($_POST);
-include_once "includes/header.php";
+
 ?>
 
 
