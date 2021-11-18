@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once 'mes_fonctions/authentification.php';
 ?>
 
@@ -24,9 +25,9 @@ include_once 'mes_fonctions/authentification.php';
         <div>
             <h1>Mon site</h1>
         </div>
-        <section class="menu">
+        <div class="menu">
             <div>
-                <h6><?php if (!empty($_SESSION['connecte']['prenom']) && !empty($_SESSION['connecte']['nom']) ) {
+                <h6><?php if (!empty($_SESSION['connecte']) ) {
                         echo 'Salut ' . $_SESSION["connecte"]["prenom"] . ' ' . $_SESSION["connecte"]["nom"] ;
                     }
                     ?>
@@ -46,7 +47,7 @@ include_once 'mes_fonctions/authentification.php';
                     <a href="admin.php"><button>Admin</button></a>
                 <?php endif; ?>
             </div>
-        </section>
+        </div>
 
 
     </header>

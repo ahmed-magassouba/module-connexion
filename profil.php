@@ -1,11 +1,10 @@
 <?php
-session_start();
 
 $title = "page de profil";
 require 'includes/header.php';
 
-require_once 'mes_fonctions/authentification.php';
 obliger_utilisateur_connecte();
+
 
 var_dump($_SESSION);
 var_dump($_POST);

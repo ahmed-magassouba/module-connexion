@@ -73,34 +73,38 @@ mysqli_close($bdd);
     <fieldset>
         <legend>Inscription</legend>
 
-        <div class="">
+       
             <label for="login"> </label>
-            <input type="text" name="login" id="login" placeholder="login" required>
-        </div>
+            <input  type="text" name="login" id="login" placeholder="login" required>
+        
 
-        <div class="">
+       
             <label for="prenom"></label>
-            <input type="text" name="prenom" id="prenom" placeholder="Prénom" required>
-        </div>
+            <input   type="text" name="prenom" id="prenom" placeholder="Prénom" required>
+        
 
-        <div class="">
+      
             <label for="nom"></label>
-            <input type="text" name="nom" id="nom" placeholder="Nom" required>
-        </div>
+            <input  type="text" name="nom" id="nom" placeholder="Nom" required>
+      
 
-        <div class="">
+        
 
             <label for="password"></label>
-            <input type="password" name="password" id="password " placeholder="Mot de passe" required>
+            <input   type="password" name="password" id="password " placeholder="Mot de passe" required>
+
+      
+
+        
 
             <label for="confirm-password"></label>
-            <input type="password" name="confirm-password" id="confirm-password" placeholder="Confirmer le mot de passe" required>
+            <input  type="password" name="confirm-password" id="confirm-password" placeholder="Confirmer le mot de passe" required>
 
-        </div>
+       
 
-        <div class="">
+        
             <input type="submit" value="Envoyer">
-        </div>
+      
 
     </fieldset>
 </form>

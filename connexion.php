@@ -1,7 +1,7 @@
 <?php
-session_start();
+require_once 'mes_fonctions/authentification.php';
 
-$title ="page de connexion";
+$title = "page de connexion";
 require 'includes/header.php';
 
 $bdd = mysqli_connect('localhost', 'root', '', 'moduleconnexion');
@@ -63,31 +63,34 @@ if (!empty($_POST)) {
     }
 }
 
-require_once 'mes_fonctions/authentification.php';
+
 
 if (est_connecte()) {
     header('Location: index.php ');
     exit();
 }
-var_dump(est_connecte());
-var_dump($_POST);
+//var_dump(est_connecte());
+//var_dump($_POST);
 
 ?>
 
 
-<form action="connexion.php" method="post">
-    <fieldset>
-        <legend>Identifiant</legend>
-        <p>
-            <label for="log"></label>
-            <input type="text" name="log" id="log" placeholder="Login" required />
-        </p>
-        <p>
-            <label for="pass"></label>
-            <input type="password" name="pass" id="pass" placeholder="Mot de passe" required />
+<form class="formconnex" action="connexion.php" method="post">
+      
+    <legend><h2>Connexion</h2></legend>
+    <div class="el">
+        <label for="log"></label>
+        <input type="text" name="log" id="log" placeholder="Login" class=" inputclass" required />
+    </div>
 
-        </p>
+    <div class="el">
+        <label for="pass"></label>
+        <input type="password" name="pass" id="pass" placeholder="Mot de passe" class=" inputclass" required />
+    </div>
+
+    <div class="el">
         <input type="submit" name="submit" value="Identification" />
-    </fieldset>
+    </div>
+
 </form>
 <?php require 'includes/footer.php'; ?>
