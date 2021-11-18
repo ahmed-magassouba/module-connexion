@@ -1,5 +1,5 @@
 <?php
-$title ="page d'inscription";
+$title = "page d'inscription";
 require 'includes/header.php';
 
 /////////////////////////////////////////////////////////
@@ -63,50 +63,49 @@ if (est_connecte()) {
     exit();
 }
 
-var_dump(est_connecte());
+//var_dump(est_connecte());
 
 mysqli_close($bdd);
 
 ?>
 
-<form action="inscription.php" method="post">
-    <fieldset>
-        <legend>Inscription</legend>
+<form class="forminscrip" action="inscription.php" method="post">
 
-       
-            <label for="login"> </label>
-            <input  type="text" name="login" id="login" placeholder="login" required>
-        
+    <legend><h3>Inscription</h3> </legend>
 
-       
-            <label for="prenom"></label>
-            <input   type="text" name="prenom" id="prenom" placeholder="Prénom" required>
-        
+    <div class="el1">
+        <label for="login"> </label>
+        <input type="text" name="login" id="login" placeholder="login" class=" inputclass" required>
+    </div>
 
-      
-            <label for="nom"></label>
-            <input  type="text" name="nom" id="nom" placeholder="Nom" required>
-      
+    <div class="el1">
+        <label for="prenom"></label>
+        <input type="text" name="prenom" id="prenom" placeholder="Prénom" class=" inputclass" required>
+    </div>
 
-        
+    <div class="el1">
+        <label for="nom"></label>
+        <input type="text" name="nom" id="nom" placeholder="Nom" class=" inputclass" required>
+    </div>
 
-            <label for="password"></label>
-            <input   type="password" name="password" id="password " placeholder="Mot de passe" required>
 
-      
+    <div class="el1">
+        <label for="password"></label>
+        <input type="password" name="password" id="password " placeholder="Mot de passe" class=" inputclass" required>
+    </div>
 
-        
 
-            <label for="confirm-password"></label>
-            <input  type="password" name="confirm-password" id="confirm-password" placeholder="Confirmer le mot de passe" required>
+    <div class="el1">
+        <label for="confirm-password"></label>
+        <input type="password" name="confirm-password" id="confirm-password" placeholder="Confirmer le mot de passe" class=" inputclass" required>
+    </div>
 
-       
 
-        
-            <input type="submit" value="Envoyer">
-      
+    <div class="el1">
+        <input type="submit" value="Envoyer" class="submitclass">
+    </div>
 
-    </fieldset>
+
 </form>
 
 <?php require 'includes/footer.php'; ?>

@@ -6,8 +6,8 @@ require 'includes/header.php';
 obliger_utilisateur_connecte();
 
 
-var_dump($_SESSION);
-var_dump($_POST);
+//var_dump($_SESSION);
+//var_dump($_POST);
 
 
 $bdd = mysqli_connect('localhost', 'root', '', 'moduleconnexion');
@@ -34,36 +34,39 @@ if (!empty($_POST)) {
 
 
 ?>
+<div>
+    <div>
+        <h1>Profil de : <?= $_SESSION['connecte']['prenom'] . ' ' . $_SESSION['connecte']['nom'] ?></h1>
+        <h1> login:<?=' '. $_SESSION['connecte']['login'] ?></h1>
+    </div>
 
-<form action="profil.php" method="post">
-    <fieldset>
-        <legend>Modifier mon profil</legend>
+    <form class="forminscrip" action="profil.php" method="post">
 
-        <div class="">
-            <label for="login"> </label>
-            <input type="text" name="login" id="login" value="<?= $login  ?>">
+        <h3>
+            <legend>Modifier mon profil</legend>
+        </h3>
+
+        <div class="el1">
+            <label for="login">Login </label>
+            <input type="text" name="login" id="login" class=" inputclass" value="<?= $login  ?>">
         </div>
 
-        <div class="">
-            <label for="prenom"></label>
-            <input type="text" name="prenom" id="prenom" value="<?= $prenom  ?>">
+        <div class="el1">
+            <label for="prenom">Prenom</label>
+            <input type="text" name="prenom" id="prenom" class=" inputclass" value="<?= $prenom  ?>">
         </div>
 
-        <div class="">
-            <label for="nom"></label>
-            <input type="text" name="nom" id="nom" value="<?= $nom  ?>">
+        <div class="el1">
+            <label for="nom">Nom</label>
+            <input type="text" name="nom" id="nom" class=" inputclass" value="<?= $nom  ?>">
         </div>
 
 
-        <div class="">
-            <input type="submit" value="Appliquer les modifications">
+        <div class="el1">
+            <input class="submitclass" type="submit" value="Appliquer les modifications">
         </div>
+    </form>
 
-    </fieldset>
-</form>
-
-
-<h1>profil de : <?= $_SESSION['connecte']['prenom'] . ' ' . $_SESSION['connecte']['nom'] ?></h1>
-<p> login:<?= $_SESSION['connecte']['login'] ?></p>
-
+    
+</div>
 <?php require 'includes/footer.php'; ?>

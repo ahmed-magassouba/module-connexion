@@ -26,15 +26,15 @@ include_once 'mes_fonctions/authentification.php';
             <h1>Mon site</h1>
         </div>
         <div class="menu">
-            <div>
-                <h6><?php if (!empty($_SESSION['connecte']) ) {
+            <div class="child1">
+                <h4><?php if (!empty($_SESSION['connecte']) ) {
                         echo 'Salut ' . $_SESSION["connecte"]["prenom"] . ' ' . $_SESSION["connecte"]["nom"] ;
                     }
                     ?>
-                </h6>
+                </h4>
             </div>
 
-            <div>
+            <div class="child2">
                 <a href="index.php"><button>Accueil</button></a>
                 <?php if (!est_connecte()) : ?>
                     <a href="connexion.php"><button>Connexion</button></a>

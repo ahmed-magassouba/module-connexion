@@ -16,7 +16,7 @@ header {
 
 .menu {
   padding: 10px;
-  width: 75%;
+  width: 71%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -25,6 +25,10 @@ header {
 button {
   height: 60px;
   width: 70px;
+}
+
+button:hover{
+  background-color:skyblue;
 }
 /* style formulaire*/
 section {
@@ -42,10 +46,8 @@ section {
   flex-direction: column;
   align-items: center;
   width: 400px;
-  padding: 40px;
   height: 480px;
-  margin: 150px;
-  
+  margin: 100px; 
   border-radius: 93px;
   background: #e0e0e0;
   box-shadow: 41px 41px 82px #6c6c6c, -41px -41px 82px #ffffff;
@@ -60,8 +62,49 @@ section {
   text-align: center;
   border-radius: 20px;
 }
+.submitclass{
+  height: 40px;
+  width: 250px;
+  border-radius: 20px;
+  background-color: blue;
+}
 
-/* style footerr*/
+.submitclass:hover{
+background-color: springgreen;
+}
+
+/* style formulaire-inscription*/
+
+.forminscrip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  height:570px;
+  margin: 100px; 
+  border-radius: 93px;
+  background: #e0e0e0;
+  box-shadow: 41px 41px 82px #6c6c6c, -41px -41px 82px #ffffff;
+}
+.el1 {
+  padding: 20px;
+  
+}
+h1{
+  padding: 10px;
+  text-align: center;
+}
+
+.child1{
+  width: 30%;
+}
+.child2{
+  display: flex;
+  width: 70%;
+  justify-content: end;
+}
+
+/* style footer */
 footer {
   display: flex;
   justify-content: center;

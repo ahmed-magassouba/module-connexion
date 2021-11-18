@@ -89,7 +89,7 @@ if (est_connecte()) {
     </div>
 
     <div class="el">
-        <input type="submit" name="submit" value="Identification" />
+        <input type="submit" name="submit" value="Se connecter" class="submitclass" />
     </div>
 
 </form>
