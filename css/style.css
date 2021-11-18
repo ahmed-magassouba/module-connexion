@@ -30,11 +30,3 @@ th{
     background-color: rgb(126, 151, 158);
 }
 
-footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgb(22, 21, 21);
-  height: 60px;
-  color: blanchedalmond;
-}
