@@ -6,7 +6,7 @@ require "includes/header.php";
 
 
 
-var_dump(est_connecte());
+//var_dump(est_connecte());
 ?>
 
 

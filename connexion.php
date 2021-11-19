@@ -40,7 +40,8 @@ if (!empty($_POST)) {
                     "id" => $utilisateur[0]["id"],
                     "login" => $utilisateur[0]["login"],
                     "prenom" => $utilisateur[0]["prenom"],
-                    "nom" => $utilisateur[0]["nom"]
+                    "nom" => $utilisateur[0]["nom"],
+                    "password" => $utilisateur[0]["password"]
                 ];
 
                 if ($_SESSION['connecte']['login'] == 'admin') {
@@ -48,7 +49,7 @@ if (!empty($_POST)) {
                     header('Location: admin.php');
                     exit();
                 } else {
-                    // var_dump($_SESSION);
+                    var_dump($_SESSION);
 
                     header('Location: index.php');
                     exit();
