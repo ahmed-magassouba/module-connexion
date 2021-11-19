@@ -36,16 +36,19 @@ include_once 'mes_fonctions/authentification.php';
 
             <div class="child2">
                 <a href="index.php"><button>Accueil</button></a>
+                
                 <?php if (!est_connecte()) : ?>
                     <a href="connexion.php"><button>Connexion</button></a>
                     <a href="inscription.php"><button>Inscription </button></a>
                 <?php else : ?>
                     <a href="profil.php"><button> Profil </button></a>
-                    <a href="deconnexion.php"><button>Logout </button></a>
+                    <a href="deconnexion.php"><button>Déconnexion</button></a>
                 <?php endif; ?>
+
                 <?php if (!empty($_SESSION) && $_SESSION['connecte']['login'] == 'admin') : ?>
                     <a href="admin.php"><button>Admin</button></a>
                 <?php endif; ?>
+
             </div>
         </div>
 

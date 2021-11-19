@@ -49,7 +49,7 @@ if (!empty($_POST)) {
                     header('Location: admin.php');
                     exit();
                 } else {
-                    var_dump($_SESSION);
+                   // var_dump($_SESSION);
 
                     header('Location: index.php');
                     exit();

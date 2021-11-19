@@ -35,6 +35,13 @@ if (!empty($_POST)) {
     $sql = "UPDATE `utilisateurs` SET `login`='$loginp',`prenom`='$prenomp',`nom`='$nomp' WHERE id = $id";
     $requete = mysqli_query($bdd, $sql);
 
+    //mettre a jour les info de la session
+    $_SESSION["connecte"]["login"] = $_POST['login'];
+    $_SESSION["connecte"]["prenom"] = $_POST['prenom'];
+    $_SESSION["connecte"]["nom"] = $_POST['nom'];
+
+
+
     // var_dump($requete);
     header('Location: index.php ');
     exit();

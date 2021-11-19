@@ -24,7 +24,7 @@ header {
 
 button {
   height: 60px;
-  width: 70px;
+  width: 78px;
   border: white;
   background-color: rgb(230, 230, 230);
 }
@@ -179,16 +179,14 @@ h1 {
   width: 200px;
   color: rgb(3, 110, 153);
   border-radius: 93px;
-background: linear-gradient(315deg, #bcbcc6, #e0e0eb);
-box-shadow:  -5px -5px 10px #cfcfda,
-             5px 5px 10px #d3d3de;
+  background: linear-gradient(315deg, #bcbcc6, #e0e0eb);
+  box-shadow: -5px -5px 10px #cfcfda, 5px 5px 10px #d3d3de;
 }
 
-.ellien:hover{
+.ellien:hover {
   border-radius: 93px;
-background: linear-gradient(315deg, #e0e0eb, #bcbcc6);
-box-shadow:  -5px -5px 10px #cfcfda,
-             5px 5px 10px #d3d3de;
+  background: linear-gradient(315deg, #e0e0eb, #bcbcc6);
+  box-shadow: -5px -5px 10px #cfcfda, 5px 5px 10px #d3d3de;
 }
 
 /* style footer */

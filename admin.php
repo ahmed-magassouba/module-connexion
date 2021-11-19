@@ -17,6 +17,7 @@
 
     $utilisateurs = mysqli_fetch_all($requete, MYSQLI_ASSOC);
 
+    if($_SESSION['connecte']['login'] == 'admin' ){
     // var_dump($utilisateurs);
 
     echo "<section class='sectionclass'><table>
@@ -42,6 +43,12 @@
     echo "</tbody>
     
 </table></section>";
+}else{
+    header('Location: index.php ');
+    exit();
+}
+
+
 
     ?>
 <?php require 'includes/footer.php'; ?>
