@@ -25,22 +25,23 @@ header {
 button {
   height: 60px;
   width: 70px;
+  border: white;
+  background-color: rgb(230, 230, 230);
 }
 
-button:hover{
-  background-color:skyblue;
+button:hover {
+  background-color: rgb(191, 198, 201);
   color: #ffffff;
   box-shadow: 41px 41px 82px #6c6c6c, -41px -41px 82px #ffffff;
 }
 /* style formulaire*/
-section {
+.sectionclass {
   width: 80%;
   margin: auto;
   height: 800px;
   background: #e0e0e0;
   display: flex;
   justify-content: center;
-  
 }
 /* style formulaire-connexion*/
 .formconnex {
@@ -49,7 +50,7 @@ section {
   align-items: center;
   width: 400px;
   height: 480px;
-  margin: 100px; 
+  margin: 100px;
   border-radius: 93px;
   background: #e0e0e0;
   box-shadow: 41px 41px 82px #6c6c6c, -41px -41px 82px #ffffff;
@@ -57,28 +58,27 @@ section {
 }
 .el {
   padding: 40px;
-  
 }
-.inputclass{
+.inputclass {
   height: 40px;
-  width:300px;
+  width: 300px;
   text-align: center;
   border-radius: 20px;
   background-color: rgb(49, 49, 49);
 }
-.submitclass{
+.submitclass {
   height: 40px;
   width: 250px;
   border-radius: 20px;
   background-color: rgb(40, 161, 241);
   color: #ffffff;
 }
-.inputclass:hover{
+.inputclass:hover {
   background-color: whitesmoke;
 }
-.submitclass:hover{
-background-color: springgreen;
-color: black;
+.submitclass:hover {
+  background-color: springgreen;
+  color: black;
 }
 
 /* style formulaire-inscription*/
@@ -88,8 +88,8 @@ color: black;
   flex-direction: column;
   align-items: center;
   width: 400px;
-  height:570px;
-  margin: 100px; 
+  height: 570px;
+  margin: 100px;
   border-radius: 93px;
   background: #e0e0e0;
   box-shadow: 41px 41px 82px #6c6c6c, -41px -41px 82px #ffffff;
@@ -97,22 +97,20 @@ color: black;
 }
 .el1 {
   padding: 20px;
-  
 }
-h1{
+h1 {
   padding: 10px;
   text-align: center;
 }
 
-.child1{
+.child1 {
   width: 30%;
 }
-.child2{
+.child2 {
   display: flex;
   width: 70%;
   justify-content: end;
 }
-
 
 /* style formulaire-profil*/
 
@@ -121,8 +119,8 @@ h1{
   flex-direction: column;
   align-items: center;
   width: 400px;
-  height:340px;
-  margin:50px; 
+  height: 340px;
+  margin: 50px;
   border-radius: 93px;
   background: #e0e0e0;
   box-shadow: 41px 41px 82px #6c6c6c, -41px -41px 82px #ffffff;
@@ -130,21 +128,69 @@ h1{
 }
 
 .el2 {
-  padding: 5px; 
+  padding: 5px;
 }
 
-.messagealert{
+.messagealert {
   text-align: center;
-  border:1px solid black;
+  border: 1px solid black;
   height: 80px;
   padding: 30px;
   margin-top: 10px;
   background-color: rgb(211, 91, 91);
 }
 
-.color{
+.color {
   color: darkred;
 }
+
+/*page index*/
+.color1 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #d1d1dc;
+  width: 100%;
+  height: 800px;
+}
+.bv {
+  color: rgb(3, 110, 153);
+  height: 60px;
+  border-radius: 93px;
+  background: linear-gradient(315deg, #e0e0eb, #bcbcc6);
+  box-shadow: -5px -5px 10px #cfcfda, 5px 5px 10px #d3d3de;
+}
+
+.lien {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding-top: 100px;
+  width: 40%;
+}
+
+.ellien {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  height: 40px;
+  width: 200px;
+  color: rgb(3, 110, 153);
+  border-radius: 93px;
+background: linear-gradient(315deg, #bcbcc6, #e0e0eb);
+box-shadow:  -5px -5px 10px #cfcfda,
+             5px 5px 10px #d3d3de;
+}
+
+.ellien:hover{
+  border-radius: 93px;
+background: linear-gradient(315deg, #e0e0eb, #bcbcc6);
+box-shadow:  -5px -5px 10px #cfcfda,
+             5px 5px 10px #d3d3de;
+}
+
 /* style footer */
 footer {
   display: flex;
@@ -155,29 +201,25 @@ footer {
   box-shadow: 41px 41px 82px #6c6c6c, -41px -41px 82px rgb(230, 230, 230);
 }
 
-
-
 table {
   margin: auto;
   width: 100%;
   border-collapse: collapse;
   border: 1px solid black;
   text-align: center;
- 
 }
 
 th,
 td {
   border: 1px solid black;
   padding: 10px;
-  white-space:nowrap;
+  white-space: nowrap;
 }
 
 tr:nth-child(even) {
-    background-color: rgb(189, 189, 189);
+  background-color: rgb(189, 189, 189);
 }
 
-th{
-    background-color: rgb(126, 151, 158);
+th {
+  background-color: rgb(126, 151, 158);
 }
-

@@ -48,10 +48,10 @@ if (!empty($_POST)) {
             header('Location: connexion.php');
             exit();
         } else {
-            $message= "Les mots de passe ne sont pas identique";
+            $message = "Les mots de passe ne sont pas identique";
         }
     } else {
-        $message=  "vous avez des champs vide ";
+        $message =  "vous avez des champs vide ";
     }
 }
 
@@ -68,53 +68,54 @@ if (est_connecte()) {
 mysqli_close($bdd);
 
 ?>
-<div>
+<section class="sectionclass">
     <div>
-        <?php if ($message) {
-            echo '<h4 class="messagealert">' . $message . ' </h4>';
-        } ?>
+        <div>
+            <?php if ($message) {
+                echo '<h4 class="messagealert">' . $message . ' </h4>';
+            } ?>
+        </div>
+        <form class="forminscrip" action="inscription.php" method="post">
+
+            <legend>
+                <h3>Inscription</h3>
+            </legend>
+
+            <div class="el1">
+                <label for="login"> </label>
+                <input type="text" name="login" id="login" placeholder="login" class=" inputclass" required>
+            </div>
+
+            <div class="el1">
+                <label for="prenom"></label>
+                <input type="text" name="prenom" id="prenom" placeholder="Prénom" class=" inputclass" required>
+            </div>
+
+            <div class="el1">
+                <label for="nom"></label>
+                <input type="text" name="nom" id="nom" placeholder="Nom" class=" inputclass" required>
+            </div>
+
+
+            <div class="el1">
+                <label for="password"></label>
+                <input type="password" name="password" id="password " placeholder="Mot de passe" class=" inputclass" required>
+            </div>
+
+
+            <div class="el1">
+                <label for="confirm-password"></label>
+                <input type="password" name="confirm-password" id="confirm-password" placeholder="Confirmer le mot de passe" class=" inputclass" required>
+            </div>
+
+
+            <div class="el1">
+                <input type="submit" value="Envoyer" class="submitclass">
+            </div>
+
+
+        </form>
     </div>
-    <form class="forminscrip" action="inscription.php" method="post">
+</section>
 
-        <legend>
-            <h3>Inscription</h3>
-        </legend>
-
-        <div class="el1">
-            <label for="login"> </label>
-            <input type="text" name="login" id="login" placeholder="login" class=" inputclass" required>
-        </div>
-
-        <div class="el1">
-            <label for="prenom"></label>
-            <input type="text" name="prenom" id="prenom" placeholder="Prénom" class=" inputclass" required>
-        </div>
-
-        <div class="el1">
-            <label for="nom"></label>
-            <input type="text" name="nom" id="nom" placeholder="Nom" class=" inputclass" required>
-        </div>
-
-
-        <div class="el1">
-            <label for="password"></label>
-            <input type="password" name="password" id="password " placeholder="Mot de passe" class=" inputclass" required>
-        </div>
-
-
-        <div class="el1">
-            <label for="confirm-password"></label>
-            <input type="password" name="confirm-password" id="confirm-password" placeholder="Confirmer le mot de passe" class=" inputclass" required>
-        </div>
-
-
-        <div class="el1">
-            <input type="submit" value="Envoyer" class="submitclass">
-        </div>
-
-
-    </form>
-</div>
-
-
-    <?php require 'includes/footer.php'; ?>
+<?php require 'includes/footer.php'; ?>

@@ -74,30 +74,34 @@ if (est_connecte()) {
 //var_dump($_POST);
 
 ?>
-<div>
+<section class="sectionclass">
     <div>
-         <?php if($message){ echo'<h4 class="messagealert">'. $message.' </h4>';}?>
+        <div>
+            <?php if ($message) {
+                echo '<h4 class="messagealert">' . $message . ' </h4>';
+            } ?>
+        </div>
+
+        <form class="formconnex" action="connexion.php" method="post">
+
+            <legend>
+                <h2>Connexion</h2>
+            </legend>
+            <div class="el">
+                <label for="log"></label>
+                <input type="text" name="log" id="log" placeholder="Login" class=" inputclass" required />
+            </div>
+
+            <div class="el">
+                <label for="pass"></label>
+                <input type="password" name="pass" id="pass" placeholder="Mot de passe" class=" inputclass" required />
+            </div>
+
+            <div class="el">
+                <input type="submit" name="submit" value="Se connecter" class="submitclass" />
+            </div>
+
+        </form>
     </div>
-
-    <form class="formconnex" action="connexion.php" method="post">
-
-        <legend>
-            <h2>Connexion</h2>
-        </legend>
-        <div class="el">
-            <label for="log"></label>
-            <input type="text" name="log" id="log" placeholder="Login" class=" inputclass" required />
-        </div>
-
-        <div class="el">
-            <label for="pass"></label>
-            <input type="password" name="pass" id="pass" placeholder="Mot de passe" class=" inputclass" required />
-        </div>
-
-        <div class="el">
-            <input type="submit" name="submit" value="Se connecter" class="submitclass" />
-        </div>
-
-    </form>
-</div>
+</section>
 <?php require 'includes/footer.php'; ?>

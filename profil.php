@@ -18,11 +18,11 @@ $id = $_SESSION['connecte']['id'];
 $login = $_SESSION['connecte']['login'];
 $prenom = $_SESSION['connecte']['prenom'];
 $nom = $_SESSION['connecte']['nom'];
-$password =$_SESSION['connecte']['password'];
+$password = $_SESSION['connecte']['password'];
 
 //var_dump($_SESSION);
 
-$message=null;
+$message = null;
 
 //les informations qui seront saisi par l'utilisateur pour les modifications
 if (!empty($_POST)) {
@@ -39,45 +39,46 @@ if (!empty($_POST)) {
     header('Location: index.php ');
     exit();
 } else {
-    $message="vous avez un champ vide";
+    $message = "vous avez un champ vide";
 }
 
 
 
 
 ?>
-<div>
+<section class="sectionclass">
     <div>
-        <h1>Profil de : <?= $_SESSION['connecte']['prenom'] . ' ' . $_SESSION['connecte']['nom'] ?></h1>
-        <h1> login:<?= ' ' . $_SESSION['connecte']['login'] ?></h1>
-    </div>
-
-    <form class="formprofil" action="profil.php" method="post">
-
-        <h3>
-            <legend>Modifier mon profil</legend>
-        </h3>
-
-        <div class="el2">
-            <h6>Login</h6>
-            <label for="login"> </label>
-            <input type="text" name="login" id="login" class=" inputclass" value="<?= $login  ?>">
+        <div>
+            <h1>Profil de : <?= $_SESSION['connecte']['prenom'] . ' ' . $_SESSION['connecte']['nom'] ?></h1>
+            <h1> login:<?= ' ' . $_SESSION['connecte']['login'] ?></h1>
         </div>
 
-        <div class="el2">
-            <h6>Prenom</h6>
-            <label for="prenom"></label>
-            <input type="text" name="prenom" id="prenom" class=" inputclass" value="<?= $prenom  ?>">
-        </div>
+        <form class="formprofil" action="profil.php" method="post">
 
-        <div class="el2">
-            <h6>Nom</h6>
+            <h3>
+                <legend>Modifier mon profil</legend>
+            </h3>
 
-            <label for="nom"></label>
-            <input type="text" name="nom" id="nom" class=" inputclass" value="<?= $nom  ?>">
-        </div>
+            <div class="el2">
+                <h6>Login</h6>
+                <label for="login"> </label>
+                <input type="text" name="login" id="login" class=" inputclass" value="<?= $login  ?>">
+            </div>
 
-        <!--<div class="el2">
+            <div class="el2">
+                <h6>Prenom</h6>
+                <label for="prenom"></label>
+                <input type="text" name="prenom" id="prenom" class=" inputclass" value="<?= $prenom  ?>">
+            </div>
+
+            <div class="el2">
+                <h6>Nom</h6>
+
+                <label for="nom"></label>
+                <input type="text" name="nom" id="nom" class=" inputclass" value="<?= $nom  ?>">
+            </div>
+
+            <!--<div class="el2">
             <h6>Mot de passe actuel</h6>
 
             <label for="lastpassword"></label>
@@ -100,11 +101,12 @@ if (!empty($_POST)) {
 
 
 
-        <div class="el2">
-            <input class="submitclass" type="submit" value="Appliquer les modifications">
-        </div>
-    </form>
+            <div class="el2">
+                <input class="submitclass" type="submit" value="Appliquer les modifications">
+            </div>
+        </form>
 
 
-</div>
+    </div>
+</section>
 <?php require 'includes/footer.php'; ?>

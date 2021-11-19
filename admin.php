@@ -19,7 +19,7 @@
 
     // var_dump($utilisateurs);
 
-    echo "<table>
+    echo "<section class='sectionclass'><table>
     <caption><h1>Liste des membres inscrits</h1></caption>
     <thead>
     <th>id</th>
@@ -41,7 +41,7 @@
 
     echo "</tbody>
     
-</table>";
+</table></section>";
 
     ?>
 <?php require 'includes/footer.php'; ?>
