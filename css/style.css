@@ -8,14 +8,15 @@
 header {
   display: flex;
   justify-content: space-between;
-  height: 60px;
+  position: fixed;
+  width: 100%;
+  height: 80px;
   background-color: rgb(230, 230, 230);
   align-items: center;
   box-shadow: 41px 41px 82px #6c6c6c, -41px -41px 82px rgb(230, 230, 230);
 }
 
 .menu {
-  padding: 10px;
   width: 71%;
   display: flex;
   justify-content: space-between;
@@ -36,25 +37,27 @@ button:hover {
 }
 /* style formulaire*/
 .sectionclass {
+  display: flex;
+ align-items: center; 
+ justify-content: center;
   width: 80%;
   margin: auto;
-  height: 800px;
-  background: #e0e0e0;
-  display: flex;
-  justify-content: center;
+  height: 850px;
+  background-color: #e0e0e0;
+  padding-top: 70px;
+ 
 }
 /* style formulaire-connexion*/
 .formconnex {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   width: 400px;
   height: 480px;
-  margin: 100px;
   border-radius: 93px;
   background: #e0e0e0;
   box-shadow: 41px 41px 82px #6c6c6c, -41px -41px 82px #ffffff;
-  padding-top: 55px;
 }
 .el {
   padding: 40px;
@@ -87,13 +90,12 @@ button:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   width: 400px;
   height: 570px;
-  margin: 100px;
   border-radius: 93px;
   background: #e0e0e0;
   box-shadow: 41px 41px 82px #6c6c6c, -41px -41px 82px #ffffff;
-  padding-top: 35px;
 }
 .el1 {
   padding: 20px;
@@ -118,13 +120,13 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   width: 400px;
   height: 340px;
   margin: 50px;
   border-radius: 93px;
   background: #e0e0e0;
   box-shadow: 41px 41px 82px #6c6c6c, -41px -41px 82px #ffffff;
-  padding-top: 30px;
 }
 
 .el2 {
@@ -138,6 +140,7 @@ h1 {
   padding: 30px;
   margin-top: 10px;
   background-color: rgb(211, 91, 91);
+  border-radius: 4px;
 }
 
 .color {
@@ -152,7 +155,8 @@ h1 {
   justify-content: center;
   background-color: #d1d1dc;
   width: 100%;
-  height: 800px;
+  height: 850px;
+  padding-top: 60px;
 }
 .bv {
   color: rgb(3, 110, 153);
@@ -167,7 +171,7 @@ h1 {
   justify-content: center;
   align-content: center;
   padding-top: 100px;
-  width: 40%;
+  width: 100%;
 }
 
 .ellien {
@@ -176,7 +180,7 @@ h1 {
   align-items: center;
   text-decoration: none;
   height: 40px;
-  width: 200px;
+  width: 300px;
   color: rgb(3, 110, 153);
   border-radius: 93px;
   background: linear-gradient(315deg, #bcbcc6, #e0e0eb);
