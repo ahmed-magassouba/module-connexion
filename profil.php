@@ -27,7 +27,9 @@ if (!empty($_POST)) {
     $sql = "UPDATE `utilisateurs` SET `login`='$loginp',`prenom`='$prenomp',`nom`='$nomp' WHERE id = $id";
     $requete = mysqli_query($bdd, $sql);
 
-    var_dump($requete);
+   // var_dump($requete);
+   header('Location: index.php ');
+   exit();
 }
 
 
@@ -37,36 +39,37 @@ if (!empty($_POST)) {
 <div>
     <div>
         <h1>Profil de : <?= $_SESSION['connecte']['prenom'] . ' ' . $_SESSION['connecte']['nom'] ?></h1>
-        <h1> login:<?=' '. $_SESSION['connecte']['login'] ?></h1>
+        <h1> login:<?= ' ' . $_SESSION['connecte']['login'] ?></h1>
     </div>
 
-    <form class="forminscrip" action="profil.php" method="post">
+    <form class="formprofil" action="profil.php" method="post">
 
         <h3>
             <legend>Modifier mon profil</legend>
         </h3>
-
-        <div class="el1">
-            <label for="login">Login </label>
+        
+        <div class="el2"><h6>Login</h6>
+            <label for="login"> </label>
             <input type="text" name="login" id="login" class=" inputclass" value="<?= $login  ?>">
         </div>
-
-        <div class="el1">
-            <label for="prenom">Prenom</label>
+        
+        <div class="el2"><h6>Prenom</h6>
+            <label for="prenom"></label>
             <input type="text" name="prenom" id="prenom" class=" inputclass" value="<?= $prenom  ?>">
         </div>
+        
+        <div class="el2"><h6>Nom</h6>
 
-        <div class="el1">
-            <label for="nom">Nom</label>
+            <label for="nom"></label>
             <input type="text" name="nom" id="nom" class=" inputclass" value="<?= $nom  ?>">
         </div>
 
 
-        <div class="el1">
+        <div class="el2">
             <input class="submitclass" type="submit" value="Appliquer les modifications">
         </div>
     </form>
 
-    
+
 </div>
 <?php require 'includes/footer.php'; ?>

@@ -29,6 +29,8 @@ button {
 
 button:hover{
   background-color:skyblue;
+  color: #ffffff;
+  box-shadow: 41px 41px 82px #6c6c6c, -41px -41px 82px #ffffff;
 }
 /* style formulaire*/
 section {
@@ -51,6 +53,7 @@ section {
   border-radius: 93px;
   background: #e0e0e0;
   box-shadow: 41px 41px 82px #6c6c6c, -41px -41px 82px #ffffff;
+  padding-top: 20px;
 }
 .el {
   padding: 40px;
@@ -61,16 +64,21 @@ section {
   width:300px;
   text-align: center;
   border-radius: 20px;
+  background-color: rgb(49, 49, 49);
 }
 .submitclass{
   height: 40px;
   width: 250px;
   border-radius: 20px;
-  background-color: blue;
+  background-color: rgb(40, 161, 241);
+  color: #ffffff;
 }
-
+.inputclass:hover{
+  background-color: whitesmoke;
+}
 .submitclass:hover{
 background-color: springgreen;
+color: black;
 }
 
 /* style formulaire-inscription*/
@@ -85,6 +93,7 @@ background-color: springgreen;
   border-radius: 93px;
   background: #e0e0e0;
   box-shadow: 41px 41px 82px #6c6c6c, -41px -41px 82px #ffffff;
+  padding-top: 20px;
 }
 .el1 {
   padding: 20px;
@@ -104,6 +113,39 @@ h1{
   justify-content: end;
 }
 
+
+/* style formulaire-profil*/
+
+.formprofil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  height:570px;
+  margin:50px; 
+  border-radius: 93px;
+  background: #e0e0e0;
+  box-shadow: 41px 41px 82px #6c6c6c, -41px -41px 82px #ffffff;
+  padding-top: 20px;
+}
+.el2 {
+  padding: 40px;
+  
+  
+}
+
+.messagealert{
+  text-align: center;
+  border:1px solid black;
+  height: 80px;
+  padding: 30px;
+  margin-top: 10px;
+  background-color: rgb(211, 91, 91);
+}
+
+.color{
+  color: darkred;
+}
 /* style footer */
 footer {
   display: flex;
@@ -114,7 +156,7 @@ footer {
   box-shadow: 41px 41px 82px #6c6c6c, -41px -41px 82px rgb(230, 230, 230);
 }
 
-/* 
+
 
 table {
   margin: auto;
@@ -129,7 +171,6 @@ th,
 td {
   border: 1px solid black;
   padding: 10px;
-  border-radius: 30px;
   white-space:nowrap;
 }
 
@@ -140,4 +181,4 @@ tr:nth-child(even) {
 th{
     background-color: rgb(126, 151, 158);
 }
- */
+

@@ -28,7 +28,7 @@ if (!empty($_POST)) {
         //var_dump($requete);
 
         $utilisateur = mysqli_fetch_all($requete, MYSQLI_ASSOC);
-        var_dump($utilisateur);
+        //var_dump($utilisateur);
 
         //les conditions de connexion et redirection vers la page de profil
 
@@ -54,12 +54,12 @@ if (!empty($_POST)) {
                     exit();
                 }
             } else {
-                echo 'inscris toi mieux ';
+                $message = 'Le login ou le mot de passe est incorrect ';
             }
         }
     }
     if (empty($utilisateur)) {
-        echo "<h1>Le login ou le mot de passe est incorrect</h1>";
+        $message = "Le login ou le mot de passe est incorrect";
     }
 }
 
@@ -73,24 +73,30 @@ if (est_connecte()) {
 //var_dump($_POST);
 
 ?>
-
-
-<form class="formconnex" action="connexion.php" method="post">
-      
-    <legend><h2>Connexion</h2></legend>
-    <div class="el">
-        <label for="log"></label>
-        <input type="text" name="log" id="log" placeholder="Login" class=" inputclass" required />
+<div>
+    <div>
+         <?php if($message){ echo'<h4 class="messagealert">'. $message.' </h4>';}?>
     </div>
 
-    <div class="el">
-        <label for="pass"></label>
-        <input type="password" name="pass" id="pass" placeholder="Mot de passe" class=" inputclass" required />
-    </div>
+    <form class="formconnex" action="connexion.php" method="post">
 
-    <div class="el">
-        <input type="submit" name="submit" value="Se connecter" class="submitclass" />
-    </div>
+        <legend>
+            <h2>Connexion</h2>
+        </legend>
+        <div class="el">
+            <label for="log"></label>
+            <input type="text" name="log" id="log" placeholder="Login" class=" inputclass" required />
+        </div>
 
-</form>
+        <div class="el">
+            <label for="pass"></label>
+            <input type="password" name="pass" id="pass" placeholder="Mot de passe" class=" inputclass" required />
+        </div>
+
+        <div class="el">
+            <input type="submit" name="submit" value="Se connecter" class="submitclass" />
+        </div>
+
+    </form>
+</div>
 <?php require 'includes/footer.php'; ?>

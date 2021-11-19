@@ -27,7 +27,7 @@ include_once 'mes_fonctions/authentification.php';
         </div>
         <div class="menu">
             <div class="child1">
-                <h4><?php if (!empty($_SESSION['connecte']) ) {
+                <h4 class="color"><?php if (!empty($_SESSION['connecte']) ) {
                         echo 'Salut ' . $_SESSION["connecte"]["prenom"] . ' ' . $_SESSION["connecte"]["nom"] ;
                     }
                     ?>

@@ -1,16 +1,11 @@
 
-<?php 
-$title ="page d'admin";
-require 'includes/header.php';
-
-require_once 'mes_fonctions/authentification.php';
-obliger_utilisateur_connecte();
-?>
-
-    <h1>bienvenue admin</h1>
-
     <?php
 
+    $title = "page d'admin";
+    require 'includes/header.php';
+
+    require_once 'mes_fonctions/authentification.php';
+    obliger_utilisateur_connecte();
 
     $bdd = mysqli_connect('localhost', 'root', '', 'moduleconnexion');
 
@@ -22,10 +17,10 @@ obliger_utilisateur_connecte();
 
     $utilisateurs = mysqli_fetch_all($requete, MYSQLI_ASSOC);
 
-    // var_dump($etudiants);
+    // var_dump($utilisateurs);
 
     echo "<table>
-    <caption>Liste des membres inscrits</caption>
+    <caption><h1>Liste des membres inscrits</h1></caption>
     <thead>
     <th>id</th>
     <th>login</th>
@@ -49,4 +44,4 @@ obliger_utilisateur_connecte();
 </table>";
 
     ?>
-<?php require 'includes/footer.php';?>
+<?php require 'includes/footer.php'; ?>
