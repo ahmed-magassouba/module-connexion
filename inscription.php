@@ -78,7 +78,7 @@ mysqli_close($bdd);
         <form class="forminscrip" action="inscription.php" method="post">
 
             <legend>
-                <h3>Inscription</h3>
+                <h2>Inscription</h2>
             </legend>
 
             <div class="el1">

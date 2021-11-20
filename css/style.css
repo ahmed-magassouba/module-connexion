@@ -28,6 +28,7 @@ button {
   width: 78px;
   border: white;
   background-color: rgb(230, 230, 230);
+  cursor: pointer;
 }
 
 button:hover {
@@ -38,14 +39,13 @@ button:hover {
 /* style formulaire*/
 .sectionclass {
   display: flex;
- align-items: center; 
- justify-content: center;
+  align-items: center;
+  justify-content: center;
   width: 80%;
   margin: auto;
   height: 850px;
   background-color: #e0e0e0;
   padding-top: 70px;
- 
 }
 /* style formulaire-connexion*/
 .formconnex {
@@ -75,6 +75,7 @@ button:hover {
   border-radius: 20px;
   background-color: rgb(40, 161, 241);
   color: #ffffff;
+  cursor: pointer;
 }
 .inputclass:hover {
   background-color: whitesmoke;
@@ -122,7 +123,7 @@ h1 {
   align-items: center;
   justify-content: center;
   width: 400px;
-  height: 340px;
+  height: 380px;
   margin: 50px;
   border-radius: 93px;
   background: #e0e0e0;
