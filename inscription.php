@@ -25,7 +25,7 @@ if (!empty($_POST)) {
 
 
     //password_hash est une fonction pour hasher le motde passe
-    $password = password_hash($_POST['password'], PASSWORD_ARGON2ID);
+    $password = password_hash($_POST['password'], PASSWORD_ARGON2I);
     $confirm_password = $_POST['confirm-password'];
 
     $sql = "INSERT INTO `utilisateurs` ( `login`, `prenom`, `nom`, `password`) VALUES ('$login', '$prenom', '$nom', '$password')";
@@ -37,7 +37,7 @@ if (!empty($_POST)) {
         $select = mysqli_query($bdd, $sqlVerif);
 
         if (mysqli_num_rows($select)) {
-            $message = "Ce login existe déjà . choisissez un autre";
+            $message = "Ce login existe déjà , choisissez un autre";
 
             //si le login n'existe pas
         } elseif (password_verify($confirm_password, $password)) {
