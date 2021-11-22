@@ -54,7 +54,7 @@ if (!empty($_POST)) {
     } else {
         $message = "Votre mot de passe  est incorrect";
     }
-} 
+}
 
 
 //var_dump($_POST);
@@ -83,44 +83,41 @@ if (!empty($_POST)) {
             <h6>Login</h6>
             <div class="el2">
                 <label for="login"> </label>
-                <input type="text" name="login" id="login" class=" inputclass" value="<?= $login  ?>">
+                <input type="text" name="login" id="login" class=" inputclass" value="<?= htmlentities($login )  ?>">
             </div>
 
-            <h6>Prenom</h6>
+            <h6>Prénom</h6>
             <div class="el2">
                 <label for="prenom"></label>
-                <input type="text" name="prenom" id="prenom" class=" inputclass" value="<?= $prenom  ?>">
+                <input type="text" name="prenom" id="prenom" class=" inputclass" value="<?= htmlentities($prenom )  ?>">
             </div>
 
             <h6>Nom</h6>
             <div class="el2">
                 <label for="nom"></label>
-                <input type="text" name="nom" id="nom" class=" inputclass" value="<?= $nom  ?>">
+                <input type="text" name="nom" id="nom" class=" inputclass" value="<?= htmlentities($nom)   ?>">
             </div>
 
             <!-- <h6>Mot de passe</h6> -->
             <div class="el2">
                 <label for="password"></label>
-                <input type="hidden" name="password" id="password" class=" inputclass" value="<?= $password  ?>" required>
+                <input type="hidden" name="password" id="password" class=" inputclass" value="<?= htmlentities($password )  ?>" required>
             </div>
 
-            <!--  <div class="el2">
-                <h6>Nouveau mot de passe</h6>
-
-                <label for="password"></label>
-                <input type="password" name="password" id="password" class=" inputclass" required>
-            </div>-->
             <h6>Confirmer les modifications avec votre mot de passe</h6>
             <div class="el2">
                 <label for="confirm-password"></label>
                 <input type="password" name="confirm-password" id="confirm-password" class=" inputclass" required>
             </div>
 
-
-
             <div class="el2">
                 <input class="submitclass" type="submit" value="Appliquer les modifications">
             </div>
+
+            <div class="el2">
+                <a class="ellien1" href="index.php">Annuler</a>
+            </div>
+
         </form>
 
 
