@@ -2,7 +2,7 @@
 require_once 'mes_fonctions/authentification.php';
 
 $title = "page de connexion";
-require 'includes/header.php';
+require_once 'includes/header.php';
 
 $bdd = mysqli_connect('localhost', 'root', '', 'moduleconnexion');
 

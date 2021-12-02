@@ -1,6 +1,6 @@
 <?php
 $title = "page d'inscription";
-require 'includes/header.php';
+require_once 'includes/header.php';
 
 /////////////////////////////////////////////////////////
 ///  CONNEXION ET INSERTION DANS LA BASE DE DONNEE  ////

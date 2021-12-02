@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once 'mes_fonctions/authentification.php';
+require_once 'mes_fonctions/authentification.php';
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +45,7 @@ include_once 'mes_fonctions/authentification.php';
                     <a href="deconnexion.php"><button>Déconnexion</button></a>
                 <?php endif; ?>
 
-                <?php if (!empty($_SESSION) && $_SESSION['connecte']['login'] == 'admin') : ?>
+                <?php if (!empty($_SESSION) && !empty($_SESSION['connecte']) && $_SESSION['connecte']['login'] == 'admin') : ?>
                     <a href="admin.php"><button>Admin</button></a>
                 <?php endif; ?>
 

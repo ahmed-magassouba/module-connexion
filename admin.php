@@ -2,7 +2,7 @@
     <?php
 
     $title = "page d'admin";
-    require 'includes/header.php';
+    require_once 'includes/header.php';
 
     require_once 'mes_fonctions/authentification.php';
     obliger_utilisateur_connecte();

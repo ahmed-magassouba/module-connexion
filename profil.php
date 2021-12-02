@@ -1,7 +1,7 @@
 <?php
 
 $title = "page de profil";
-require 'includes/header.php';
+require_once 'includes/header.php';
 
 obliger_utilisateur_connecte();
 
